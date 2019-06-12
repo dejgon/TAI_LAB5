@@ -17,8 +17,11 @@ export class NewPostComponent implements OnInit {
   }
 
   onSubmit() {
+    
+  }
+  submit() {
     this.dataService.createPost(this.post).subscribe((post) => {
-      this.router.navigate(['']);
+      this.router.navigate(['blog']);
     });
   }
 }

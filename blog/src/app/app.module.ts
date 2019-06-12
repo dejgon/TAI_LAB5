@@ -25,6 +25,7 @@ import { NewPostComponent } from './components/new-post/new-post.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthenticationService } from './_services/authentication.service';
 import {HttpIntercepterBasicAuthService} from './_services/http/interceptor-auth.service';
+import { AddPostComponent } from './components/add-post/add-post.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {HttpIntercepterBasicAuthService} from './_services/http/interceptor-auth
     FilterPipe,
     SelectizeComponent,
     NewPostComponent,
-    LoginComponent
+    LoginComponent,
+    AddPostComponent
   ],
   imports: [
     BrowserModule,
