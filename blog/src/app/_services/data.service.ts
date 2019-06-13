@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 export class DataService {
 
   private url = 'http://localhost:3000';
+  private selectizeUrl = 'https://blogtai.herokuapp.com';
 
   constructor(private http: HttpClient) {
   }
@@ -13,10 +14,10 @@ export class DataService {
     return this.http.get(this.url + '/api/posts');
   }
   getById(id) {
-    return this.http.get(this.url + '/api/posts' + id);
+    return this.http.get(this.url + '/api/posts/' + id);
   }
   getByText(data) {
-    return this.http.post(this.url + '/api/posts', data);
+    return this.http.post(this.selectizeUrl + '/api/posts', data);
   }
   createPost(data) {
     console.log('Dane do wyslania: ' + data);

@@ -26,6 +26,10 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthenticationService } from './_services/authentication.service';
 import {HttpIntercepterBasicAuthService} from './_services/http/interceptor-auth.service';
 import { AddPostComponent } from './components/add-post/add-post.component';
+import { AuthService } from './_services/auth.service';
+import { AuthInterceptor } from './_services/auth/auth.interceptor';
+import { SignupComponent } from './components/signup/signup.component';
+import { AdminGuard } from './_services/admin-guard.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,8 @@ import { AddPostComponent } from './components/add-post/add-post.component';
     SelectizeComponent,
     NewPostComponent,
     LoginComponent,
-    AddPostComponent
+    AddPostComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -58,9 +63,11 @@ import { AddPostComponent } from './components/add-post/add-post.component';
   providers: [
     DataService,
     AuthenticationService,
+    AuthService,
+    AdminGuard,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: HttpIntercepterBasicAuthService,
+      useClass: AuthInterceptor,
       multi: true
     },
 
